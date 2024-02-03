@@ -1,0 +1,27 @@
+<div class="flex justify-center items-center min-h-screen bg-base-200 text-base-content">
+  <div class="card w-full max-w-md bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h3 class="card-title text-center">Sign Up</h3>
+      <div class="form-group mb-4">
+        <label class="label">
+          <span class="label-text">Email Address</span>
+        </label>
+        <input type="email" placeholder="Email Address" class="input input-bordered w-full" #userEmail required>
+      </div>
+      <div class="form-group mb-6">
+        <label class="label">
+          <span class="label-text">Password</span>
+        </label>
+        <input type="password" placeholder="Password" class="input input-bordered w-full" #userPwd required>
+      </div>
+      <div class="form-group mb-4">
+        <button type="button" class="btn btn-primary w-full" (click)="authService.SignUp(userEmail.value, userPwd.value)">Sign Up</button>
+      </div>
+      <div class="divider">OR</div>
+      <div class="text-center mt-4">
+        Already have an account?
+        <a routerLink="/sign-in" class="link link-primary">Log In</a>
+      </div>
+    </div>
+  </div>
+</div>

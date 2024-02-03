@@ -1,0 +1,23 @@
+<div class="overflow-x-auto">
+  <table class="table w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Company</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user) {
+        <tr>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.address.city }}</td>
+          <td>{{ user.company.name }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,57 @@
+@if (authService.userData; as user) {
+  <div class="navbar bg-base-200 text-base-content">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl">Dashboard</a>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        <li>
+          <details>
+            <summary>
+              {{ user.displayName ? user.displayName : "User" }}
+            </summary>
+            <ul class="p-2 bg-base-300 rounded-t-none text-base-content">
+              <li><a>Profile</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="flex h-screen bg-base-100 text-base-content">
+    <!-- Static Sidebar -->
+    <div class="sidebar bg-base-200 w-64 p-4">
+      <div class="flex flex-col">
+        <span class="text-xl">Menu</span>
+        <ul class="menu p-2">
+          <li><a>User Profile</a></li>
+          <li (click)="authService.SignOut()"><a>Logout</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-4">
+      <h2 class="text-2xl font-bold mb-10">User Profile</h2>
+        <div>
+          <div class="flex items-start">
+            <img
+              class="mr-4 w-20 h-20 rounded-full border border-base-300"
+              src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"
+              alt="{{ user.displayName }}"
+              />
+            <div class="flex flex-col">
+              <h1 class="font-bold">Hello: <strong>{{ user.displayName ? user.displayName : "User" }}</strong></h1>
+              <p>User ID: <strong>{{ user.uid }}</strong></p>
+              <p>Email: <strong>{{ user.email }}</strong></p>
+              <p>Email Verified: <strong>{{ user.emailVerified }}</strong></p>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+  </div>
+}
